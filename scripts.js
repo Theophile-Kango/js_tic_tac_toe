@@ -1,6 +1,11 @@
-const GameBoard = () => {
-  let gameBoard = [];
-}
+const gameboard = (() => {
+  let gameboardArr = [];
+  const populateArr = (symbol, position) => {
+    gameboardArr[position] = symbol;
+    console.log(gameboardArr);
+  }
+  return {populateArr};
+})();
 
 const playerFactory = (name, symbol) => {
   return {name, symbol}
@@ -21,7 +26,13 @@ const game = (() => {
     buttons.forEach((element, i) => {
       element.setAttribute('id',i);
       element.addEventListener('click', () => {
-        element.textContent = switchPlayers(player1.symbol, player2.symbol);
+        if(element.textContent == 'X' || element.textContent == 'O'){
+          return false;
+        }
+        else{
+          element.textContent = switchPlayers(player1.symbol, player2.symbol);
+          gameboard.populateArr(element.textContent, i);
+        }
       })
     })
   }
