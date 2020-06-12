@@ -7,14 +7,14 @@ body {
   align-items: center;
 }
 
-h1{
+h1 {
   margin-bottom: 0;
   font-size: 45px;
   font-family: Arial, Helvetica, sans-serif;
   color: midnightblue;
 }
 
-#score{
+#score {
   margin: 2px 0 10px 0;
   padding: 5px;
   color: rgb(99, 99, 131);
@@ -22,20 +22,20 @@ h1{
   font-weight: 700;
 }
 
-#score h3{
+#score h3 {
   margin: 0;
 }
 
-#score div{
+#score div {
   display: flex;
   justify-content: space-between;
 }
 
-.min-height{
+.min-height {
   min-height: 24px;
 }
 
-form{
+form {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -43,22 +43,22 @@ form{
 }
 
 form input,
-form label{
+form label {
   width: 400px;
   margin: 5px 5px 5px 0;
 }
 
-form label{
+form label {
   font-weight: 700;
 }
 
-form input{
+form input {
   height: 30px;
   padding-left: 10px;
 }
 
 #start,
-#reset{
+#reset {
   background-color: rgb(99, 99, 131);
   color: white;
   width: 100px;
@@ -69,17 +69,17 @@ form input{
   margin-top: 20px;
 }
 
-.gameboard{
-display: flex;
-flex-wrap: wrap;
-width: 300px;
+.gameboard {
+  display: flex;
+  flex-wrap: wrap;
+  width: 300px;
 }
 
-.d-none{
+.d-none {
   display: none;
 }
 
-.gameboard button{
+.gameboard button {
   min-width: 33%;
   min-height: 100px;
   font-size: 30px;
