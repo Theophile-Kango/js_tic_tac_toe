@@ -7,13 +7,17 @@ body {
   align-items: center;
 }
 
- .gameboard{
-  display: flex;
-  flex-wrap: wrap;
-  width: 300px;
- }
+.gameboard{
+display: flex;
+flex-wrap: wrap;
+width: 300px;
+}
 
- .gameboard button{
-   min-width: 33%;
-   min-height: 100px;
- }
+.d-none{
+  display: none;
+}
+
+.gameboard button{
+  min-width: 33%;
+  min-height: 100px;
+}

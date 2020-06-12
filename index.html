@@ -9,7 +9,7 @@
   </head>
   <body>
     <h1>Tic Tac Toe</h1>
-    <div class="gameboard">
+    <div class="gameboard d-none">
       <button></button>
       <button></button>
       <button></button>
@@ -20,7 +20,14 @@
       <button></button>
       <button></button>
     </div>
-    <button id="reset">Reset</button>
+    <button class="d-none" id="reset">Reset</button>
+    <form action="#" id="form">
+      <label for="player1">Player 1:</label>
+      <input id="player-1" type="text" name="player1" placeholder="Input player 1 name" required>
+      <label for="player2">Player 2:</label>
+      <input id="player-2" type="text" name="player2" placeholder="Input player 2 name" required>
+    </form>
+    <button id="start">Start</button>
   </body>
   <script src="scripts.js"></script>
 </html>

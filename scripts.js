@@ -51,11 +51,24 @@ const playerFactory = (name, symbol) => {
   return {name, symbol}
 }
 
-let name1 = prompt("Give the first name");
-let name2 = prompt("Give the second name");
+let name1 = document.querySelector('#player-1');
+let name2 = document.querySelector('#player-2');
 
-const player1 = playerFactory(name1,'X');
-const player2 = playerFactory(name2,'O');
+const player1 = playerFactory(name1.value,'X');
+const player2 = playerFactory(name2.value,'O');
+
+const startButton = document.querySelector('#start');
+startButton.addEventListener(('click'), () => {
+  game.play();
+  const showBoard = document.querySelector('.gameboard');
+  const showButton = document.querySelector('#reset');
+  const form = document.querySelector('#form');
+  showBoard.classList.remove('d-none');
+  showButton.classList.remove('d-none');
+  startButton.classList.add('d-none');
+  form.classList.add('d-none');
+}
+);
 
 const gameButtons = document.querySelector('.gameboard');
 
@@ -91,5 +104,3 @@ const game = (() => {
 
   return {play}
 })();
-
-game.play();
