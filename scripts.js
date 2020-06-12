@@ -23,23 +23,20 @@ const gameboard = (() => {
     gameboardArr1 = [];
     gameboardArr2 = [];
     counter = 0;
-    player1.score = 0;
-    player2.score = 0;
-    game.score();
+    result.textContent = '';
   }
 
   const checkWin = (player, gameboardArr) => {
+    const result = document.getElementById('result');
     victoryArr.forEach((arr) => {
       if(gameboardArr.includes(arr[0]) && gameboardArr.includes(arr[1]) && gameboardArr.includes(arr[2])){
-        console.log(`${player.name} wins!`)
-        resetBoard();
+        result.textContent = `${player.name} wins!`;
         player.score += 1;
         game.score();
       }
       else{
         if(counter === 9){
-          console.log("It's a draw!");
-          resetBoard();
+          result.textContent = "It's a draw!";
           game.score();
         }
       }
@@ -86,7 +83,7 @@ const game = (() => {
       element.setAttribute('id',i);
       element.addEventListener('click', () => {
         counter += 1;
-        if(element.textContent == 'X' || element.textContent == 'O'){
+        if(element.textContent == 'X' || element.textContent == 'O' || result.textContent != ''){
           return false;
         }
         else{
