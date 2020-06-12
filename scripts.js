@@ -68,6 +68,7 @@ startButton.addEventListener(('click'), () => {
   const hide = document.querySelector('#hide-div');
   showBoard.classList.remove('d-none');
   hide.classList.add('d-none');
+  game.score();
 }
 );
 
