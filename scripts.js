@@ -62,7 +62,7 @@ gameboard = (() => {
         result.textContent = `${player.name} wins!`;
         player.score += 1;
         game.score();
-      } else if (counter === 9) {
+      } else if (counter === 9 && result.textContent === '') {
         result.textContent = "It's a draw!";
         game.score();
       }
