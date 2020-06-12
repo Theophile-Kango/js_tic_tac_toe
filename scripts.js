@@ -1,10 +1,23 @@
 const gameboard = (() => {
   let gameboardArr = [];
-  const populateArr = (symbol, position) => {
-    gameboardArr[position] = symbol;
-    console.log(gameboardArr);
+  let victoryArr = [[1, 2, 3], [4, 5, 6], [7, 8, 9],
+  [1, 4, 7], [2, 5, 8], [3, 6, 9],
+  [1, 5, 9], [3, 5, 7]];
+  const populateArr = (position, symbol) => {
+    gameboardArr.push([Number(position)+1, symbol]);
+    checkWin();
   }
-  return {populateArr};
+  const checkWin = () => {
+    victoryArr.forEach((arr) => {
+      if(gameboardArr.includes(arr[0]) && gameboardArr.includes(arr[1]) && gameboardArr.includes(arr[2])){
+          console.log(`${player2.name} wins!`)
+      if(){
+          console.log(`${player1.name} wins!`)
+        }
+      }
+    })
+  }
+  return {populateArr, checkWin};
 })();
 
 const playerFactory = (name, symbol) => {
@@ -19,8 +32,9 @@ const player2 = playerFactory(name2,'O');
 
 const gameButtons = document.querySelector('.gameboard');
 
+let current = true;
+
 const game = (() => {
-  let current = true;
   const play = () => {
     const buttons = gameButtons.querySelectorAll('button');
     buttons.forEach((element, i) => {
@@ -31,7 +45,7 @@ const game = (() => {
         }
         else{
           element.textContent = switchPlayers(player1.symbol, player2.symbol);
-          gameboard.populateArr(element.textContent, i);
+          gameboard.populateArr(i, element.textContent);
         }
       })
     })
