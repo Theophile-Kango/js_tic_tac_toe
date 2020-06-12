@@ -23,6 +23,9 @@ const gameboard = (() => {
     gameboardArr1 = [];
     gameboardArr2 = [];
     counter = 0;
+    player1.score = 0;
+    player2.score = 0;
+    game.score();
   }
 
   const checkWin = (player, gameboardArr) => {
@@ -30,11 +33,14 @@ const gameboard = (() => {
       if(gameboardArr.includes(arr[0]) && gameboardArr.includes(arr[1]) && gameboardArr.includes(arr[2])){
         console.log(`${player.name} wins!`)
         resetBoard();
+        player.score += 1;
+        game.score();
       }
       else{
         if(counter === 9){
           console.log("It's a draw!");
           resetBoard();
+          game.score();
         }
       }
     })
@@ -47,26 +53,24 @@ reset.addEventListener(('click'), () => {
 }
 );
 
-const playerFactory = (name, symbol) => {
-  return {name, symbol}
+const playerFactory = (name, symbol, score) => {
+  return {name, symbol, score}
 }
 
-let name1 = document.querySelector('#player-1');
-let name2 = document.querySelector('#player-2');
-
-const player1 = playerFactory(name1.value,'X');
-const player2 = playerFactory(name2.value,'O');
+let player1 = ''
+let player2 = ''
 
 const startButton = document.querySelector('#start');
 startButton.addEventListener(('click'), () => {
+  const name1 = document.getElementById('player-1').value;
+  const name2 = document.getElementById('player-2').value;
+  player1 = playerFactory(name1,'X', 0);
+  player2 = playerFactory(name2,'O', 0);
   game.play();
-  const showBoard = document.querySelector('.gameboard');
-  const showButton = document.querySelector('#reset');
-  const form = document.querySelector('#form');
+  const showBoard = document.querySelector('.d-none');
+  const hide = document.querySelector('#hide-div');
   showBoard.classList.remove('d-none');
-  showButton.classList.remove('d-none');
-  startButton.classList.add('d-none');
-  form.classList.add('d-none');
+  hide.classList.add('d-none');
 }
 );
 
@@ -101,6 +105,12 @@ const game = (() => {
       return player2
     }
   }
+  const score = () => {
+    const player1Score = document.getElementById('player1-score');
+    const player2Score = document.getElementById('player2-score');
+    player1Score.textContent = `${player1.name}: ${player1.score}`;
+    player2Score.textContent = `${player2.name}: ${player2.score}`;
+  }
 
-  return {play}
+  return {play, score}
 })();
