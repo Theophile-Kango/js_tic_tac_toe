@@ -1,19 +1,23 @@
 const gameboard = (() => {
-  let gameboardArr = [];
+  let gameboardArr1 = [];
+  let gameboardArr2 = [];
   let victoryArr = [[1, 2, 3], [4, 5, 6], [7, 8, 9],
   [1, 4, 7], [2, 5, 8], [3, 6, 9],
   [1, 5, 9], [3, 5, 7]];
   const populateArr = (position, symbol) => {
-    gameboardArr.push([Number(position)+1, symbol]);
-    checkWin();
+    if(symbol == 'X'){
+      gameboardArr1.push(Number(position)+1);
+      checkWin(player1, gameboardArr1);
+    }
+    else{
+      gameboardArr2.push(Number(position)+1);
+      checkWin(player2, gameboardArr2);
+    }
   }
-  const checkWin = () => {
+  const checkWin = (player, gameboardArr) => {
     victoryArr.forEach((arr) => {
       if(gameboardArr.includes(arr[0]) && gameboardArr.includes(arr[1]) && gameboardArr.includes(arr[2])){
-          console.log(`${player2.name} wins!`)
-      if(){
-          console.log(`${player1.name} wins!`)
-        }
+          console.log(`${player.name} wins!`)
       }
     })
   }
