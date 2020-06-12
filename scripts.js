@@ -15,8 +15,7 @@ const gameboard = (() => {
     }
   }
 
-  const reset = () => {
-    // const gameButtons = document.querySelector('.gameboard');
+  const resetBoard = () => {
     const buttons = gameButtons.querySelectorAll('button');
     buttons.forEach((element) => {
         element.textContent = "";
@@ -30,18 +29,23 @@ const gameboard = (() => {
     victoryArr.forEach((arr) => {
       if(gameboardArr.includes(arr[0]) && gameboardArr.includes(arr[1]) && gameboardArr.includes(arr[2])){
         console.log(`${player.name} wins!`)
-        reset();
+        resetBoard();
       }
       else{
         if(counter === 9){
           console.log("It's a draw!");
-          reset();
+          resetBoard();
         }
       }
     })
   }
-  return {populateArr, checkWin};
+  return {populateArr, checkWin, resetBoard};
 })();
+
+reset.addEventListener(('click'), () => {
+  gameboard.resetBoard();
+}
+);
 
 const playerFactory = (name, symbol) => {
   return {name, symbol}
