@@ -20,7 +20,7 @@ In this project, we will be building a Tic Tac Toe game on Javascript.
 
 ## Live Demo
 
-[Click for live webpage](https://raw.githack.com/Theophile-Kango/js_tic_tac_toe/feature/index.html)
+[Click for live webpage](https://game-tic-tac-toe.netlify.app/)
 
 ## Built With
 
