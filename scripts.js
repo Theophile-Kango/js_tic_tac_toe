@@ -14,14 +14,28 @@ const gameboard = (() => {
       checkWin(player2, gameboardArr2);
     }
   }
+
+  const reset = () => {
+    // const gameButtons = document.querySelector('.gameboard');
+    const buttons = gameButtons.querySelectorAll('button');
+    buttons.forEach((element) => {
+        element.textContent = "";
+    })
+    gameboardArr1 = [];
+    gameboardArr2 = [];
+    counter = 0;
+  }
+
   const checkWin = (player, gameboardArr) => {
     victoryArr.forEach((arr) => {
       if(gameboardArr.includes(arr[0]) && gameboardArr.includes(arr[1]) && gameboardArr.includes(arr[2])){
         console.log(`${player.name} wins!`)
+        reset();
       }
       else{
         if(counter === 9){
           console.log("It's a draw!");
+          reset();
         }
       }
     })
