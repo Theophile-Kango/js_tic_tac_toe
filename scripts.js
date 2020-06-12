@@ -17,7 +17,12 @@ const gameboard = (() => {
   const checkWin = (player, gameboardArr) => {
     victoryArr.forEach((arr) => {
       if(gameboardArr.includes(arr[0]) && gameboardArr.includes(arr[1]) && gameboardArr.includes(arr[2])){
-          console.log(`${player.name} wins!`)
+        console.log(`${player.name} wins!`)
+      }
+      else{
+        if(counter === 9){
+          console.log("It's a draw!");
+        }
       }
     })
   }
@@ -37,6 +42,7 @@ const player2 = playerFactory(name2,'O');
 const gameButtons = document.querySelector('.gameboard');
 
 let current = true;
+let counter = 0;
 
 const game = (() => {
   const play = () => {
@@ -44,6 +50,7 @@ const game = (() => {
     buttons.forEach((element, i) => {
       element.setAttribute('id',i);
       element.addEventListener('click', () => {
+        counter += 1;
         if(element.textContent == 'X' || element.textContent == 'O'){
           return false;
         }
