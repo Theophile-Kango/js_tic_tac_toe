@@ -7,6 +7,37 @@ body {
   align-items: center;
 }
 
+form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+form input,
+form label{
+  width: 400px;
+  margin: 5px;
+}
+
+form input{
+  height: 30px;
+  padding-left: 10px;
+}
+
+#start,
+#reset{
+  background-color: rgb(99, 99, 131);
+  color: white;
+  width: 100px;
+  height: 30px;
+  padding-right: 20px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
 .gameboard{
 display: flex;
 flex-wrap: wrap;
