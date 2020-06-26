@@ -1,3 +1,5 @@
+import './main.scss';
+
 const gameButtons = document.querySelector('.gameboard');
 
 let gameboard = false;
