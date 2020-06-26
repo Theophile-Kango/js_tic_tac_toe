@@ -1,8 +1,7 @@
-import { gamePlayers, gameboardLogic } from './main'
+import { gamePlayers, gameboardLogic } from './main';
 
 const gameButtons = document.querySelector('.gameboard');
 export const game = (() => {
-
   const play = (player1, player2) => {
     const buttons = gameButtons.querySelectorAll('button');
     buttons.forEach((element, i) => {
@@ -32,12 +31,11 @@ export const game = (() => {
 })();
 
 export const gameboard = (() => {
-  
   const writeResult = (player, gameboardArr) => {
     const result = document.getElementById('result');
     result.textContent = gameboardLogic.checkWin(player, gameboardArr);
   };
-  
+
 
   const resetBoard = () => {
     const buttons = gameButtons.querySelectorAll('button');
@@ -58,10 +56,9 @@ export const start = (() => {
 
     reset.addEventListener(('click'), () => {
       gameboard.resetBoard();
-      });
-    }
-    const firstStart = () => {
-
+    });
+  };
+  const firstStart = () => {
     const startButton = document.querySelector('#start');
     startButton.addEventListener(('click'), () => {
       const name1 = document.getElementById('player-1').value;
@@ -72,6 +69,6 @@ export const start = (() => {
       showBoard.classList.remove('d-none');
       hide.classList.add('d-none');
     });
-    }
-    return { firstReset, firstStart };
+  };
+  return { firstReset, firstStart };
 })();
