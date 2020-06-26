@@ -1,5 +1,3 @@
-import { game, gameboard } from './dom'
-
 let player1 = '';
 let player2 = '';
 
@@ -10,8 +8,11 @@ export const gamePlayers = (() => {
     const players = (name1, name2) => {
         player1 = playerFactory(name1, 'X', 0);
         player2 = playerFactory(name2, 'O', 0);
-        game.play(player1, player2);
-        game.score(player1, player2);
+        return [player1, player2];
+    }
+
+    const getPlayers = () => {
+        return [player1, player2];
     }
 
     const switchPlayers = (player1, player2) => {
@@ -23,7 +24,7 @@ export const gamePlayers = (() => {
         return player2;
       };
 
-    return { players, switchPlayers }
+    return { players, switchPlayers, getPlayers }
 })();
 
 export const gameboardLogic = (() => {
@@ -39,13 +40,10 @@ let counter = 0;
     const checkWin = (player, gameboardArr) => {
     
         for(let i = 0; i < victoryArr.length; i += 1) {
-            console.log(gameboardArr)
-            console.log(victoryArr[i])
             if (gameboardArr.includes(victoryArr[i][0])
                 && gameboardArr.includes(victoryArr[i][1])
                 && gameboardArr.includes(victoryArr[i][2])) {
                 player.score += 1;
-                game.score(player1, player2);
                 return `${player.name} wins!`;
             }
         };
@@ -53,14 +51,18 @@ let counter = 0;
             return "It's a draw!";
         }
     }
+
+    const getGameboardArr = () => {
+        return [gameboardArr1, gameboardArr2];
+    }
     
     const populateArr = (position, symbol) => {
         if (symbol === 'X') {
             gameboardArr1.push(Number(position) + 1);
-            gameboard.writeResult(player1, gameboardArr1);
+            return 'X';
         } else {
             gameboardArr2.push(Number(position) + 1);
-            gameboard.writeResult(player2, gameboardArr2);
+            return 'O';
         }
     };
 
@@ -74,7 +76,7 @@ let counter = 0;
         counter += 1;
     }
 
-    return { checkWin, populateArr, resetArr, increaseCounter }
+    return { checkWin, populateArr, resetArr, increaseCounter, getGameboardArr }
 })();
     
     
