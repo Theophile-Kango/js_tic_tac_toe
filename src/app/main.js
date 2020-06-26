@@ -43,7 +43,7 @@ let gameboardArr2 = [];
         }
     };
 
-    return { checkWin, populateArr }
+    return { checkWin, populateArr}
 })();
     
     
