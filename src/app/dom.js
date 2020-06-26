@@ -1,43 +1,10 @@
 import { gamePlayers, gameboardLogic } from './main';
 
 const gameButtons = document.querySelector('.gameboard');
-export const game = (() => {
-  const play = (player1, player2) => {
-    const buttons = gameButtons.querySelectorAll('button');
-    buttons.forEach((element, i) => {
-      element.setAttribute('id', i);
-      element.addEventListener('click', () => {
-        const result = document.getElementById('result');
-        gameboardLogic.increaseCounter();
-        if (element.textContent === 'X' || element.textContent === 'O' || result.textContent !== '') {
-          return false;
-        }
-        element.textContent = gamePlayers.switchPlayers(player1.symbol, player2.symbol);
-        const [gameboardArr1, gameboardArr2] = gameboardLogic.getGameboardArr();
-        const currentPlayer = gameboardLogic.populateArr(i, element.textContent);
-        if(currentPlayer === 'X'){
-          gameboard.writeResult(player1, gameboardArr1);
-        }else{
-          gameboard.writeResult(player2, gameboardArr2);
-        }
-        return false;
-      });
-    });
-    return false;
-  };
 
-  const score = () => {
-    const [player1, player2] = gamePlayers.getPlayers();
-    const player1Score = document.getElementById('player1-score');
-    const player2Score = document.getElementById('player2-score');
-    player1Score.textContent = `${player1.name}: ${player1.score}`;
-    player2Score.textContent = `${player2.name}: ${player2.score}`;
-  };
+let game = '';
 
-  return { play, score };
-})();
-
-export const gameboard = (() => {
+const gameboard = (() => {
   const writeResult = (player, gameboardArr) => {
     const result = document.getElementById('result');
     result.textContent = gameboardLogic.checkWin(player, gameboardArr);
@@ -58,7 +25,43 @@ export const gameboard = (() => {
   return { writeResult, resetBoard };
 })();
 
-export const start = (() => {
+game = (() => {
+  const play = (player1, player2) => {
+    const buttons = gameButtons.querySelectorAll('button');
+    buttons.forEach((element, i) => {
+      element.setAttribute('id', i);
+      element.addEventListener('click', () => {
+        const result = document.getElementById('result');
+        gameboardLogic.increaseCounter();
+        if (element.textContent === 'X' || element.textContent === 'O' || result.textContent !== '') {
+          return false;
+        }
+        element.textContent = gamePlayers.switchPlayers(player1.symbol, player2.symbol);
+        const [gameboardArr1, gameboardArr2] = gameboardLogic.getGameboardArr();
+        const currentPlayer = gameboardLogic.populateArr(i, element.textContent);
+        if (currentPlayer === 'X') {
+          gameboard.writeResult(player1, gameboardArr1);
+        } else {
+          gameboard.writeResult(player2, gameboardArr2);
+        }
+        return false;
+      });
+    });
+    return false;
+  };
+
+  const score = () => {
+    const [player1, player2] = gamePlayers.getPlayers();
+    const player1Score = document.getElementById('player1-score');
+    const player2Score = document.getElementById('player2-score');
+    player1Score.textContent = `${player1.name}: ${player1.score}`;
+    player2Score.textContent = `${player2.name}: ${player2.score}`;
+  };
+
+  return { play, score };
+})();
+
+const start = (() => {
   const firstReset = () => {
     const reset = document.getElementById('reset');
 
@@ -82,3 +85,4 @@ export const start = (() => {
   };
   return { firstReset, firstStart };
 })();
+export default start;
