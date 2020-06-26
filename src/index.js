@@ -10,7 +10,7 @@ let player2 = '';
 let current = true;
 let counter = 0;
 
-const game = (() => {
+export const game = (() => {
   const switchPlayers = (player1, player2) => {
     if (current === true) {
       current = false;
