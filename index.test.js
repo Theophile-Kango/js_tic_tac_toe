@@ -11,5 +11,7 @@ describe('gamePlayers', () => {
     expect(symbol).not.toEqual("O");
     expect(players[1].name).not.toEqual("John");
     expect(players[1].score).not.toEqual(1);
+    expect(gamePlayers.switchPlayers(players[0], players[1])).toEqual(players[0]);
+    expect(gamePlayers.switchPlayers(players[0], players[1])).not.toEqual(players[0]);
   });
 });
