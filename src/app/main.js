@@ -68,6 +68,7 @@ export const gameboardLogic = (() => {
 
   const increaseCounter = () => {
     counter += 1;
+    return counter;
   };
 
   return {
