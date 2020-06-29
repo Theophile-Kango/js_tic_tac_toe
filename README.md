@@ -25,6 +25,7 @@ In this project, we will be building a Tic Tac Toe game on Javascript.
 ## Built With
 
 - JavaScript
+- Jest
 - HTML5 
 - CSS3
 
@@ -36,16 +37,20 @@ In this project, we will be building a Tic Tac Toe game on Javascript.
 - Keep the application logic separated from DOM manipulation tasks.
 - Keep all the styling logic in CSS files.
 - Use object destructuring to get the values from an object. This way you can avoid repeating a lot of code.
+- Create separate test file for each class or module.
 
 ### Setup
 
 - Clone the repository on your local machine
 - Cd into the folder
-- Open index.html file
+- Run `npm start`
+- Open your browser and type `localhost:8080`
+- To run tests, type `npm run test`
 
 ### Install
 
 - Install VSCode or any code editor you like
+- Install npm by running `npm install`
 
 ## Authors
 

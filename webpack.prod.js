@@ -5,7 +5,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // eslint-disab
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin'); // eslint-disable-line import/no-extraneous-dependencies
 const TerserPlugin = require('terser-webpack-plugin'); // eslint-disable-line import/no-extraneous-dependencies
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // eslint-disable-line import/no-extraneous-dependencies
-const CopyPlugin = require('copy-webpack-plugin'); // eslint-disable-line import/no-extraneous-dependencies
 const common = require('./webpack.common');
 
 module.exports = merge(common, {
@@ -31,11 +30,6 @@ module.exports = merge(common, {
   plugins: [
     new MiniCssExtractPlugin({ filename: '[name].[contentHash].css' }),
     new CleanWebpackPlugin(),
-    new CopyPlugin({
-      patterns: [
-        { from: './src/assets', to: 'src/assets' },
-      ],
-    }),
   ],
   module: {
     rules: [
