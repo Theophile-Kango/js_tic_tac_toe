@@ -45,7 +45,7 @@ In this project, we will be building a Tic Tac Toe game on Javascript.
 - Cd into the folder
 - Run `npm start`
 - Open your browser and type `localhost:8080`
-- To run tests, type `npm run watch`
+- To run tests, type `npm run test`
 
 ### Install
 
