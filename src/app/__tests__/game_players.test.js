@@ -11,7 +11,7 @@ describe('players function', () => {
     expect(name).toEqual('Theo');
   });
   test('if initial score is zero', () => {
-      expect(score).toEqual(0);
+    expect(score).toEqual(0);
   });
   test('if player 2 symbol is O', () => {
     expect(players[1].symbol).toEqual('O');
@@ -39,6 +39,6 @@ describe('switchPlayers function', () => {
 describe('getPlayers function', () => {
   test('getPlayers should get both players objects in an array', () => {
     expect(gamePlayers.getPlayers(players[0], players[1]))
-    .toStrictEqual([{ name: 'Theo', score: 0, symbol: 'X' }, { name: 'Murilo', score: 0, symbol: 'O' }]);
+      .toStrictEqual([{ name: 'Theo', score: 0, symbol: 'X' }, { name: 'Murilo', score: 0, symbol: 'O' }]);
   });
 });
