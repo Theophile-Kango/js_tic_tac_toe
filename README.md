@@ -30,13 +30,7 @@ In this project, we will be building a Tic Tac Toe game on Javascript.
 
 ## Requirements
 
-- Keep your code clean.
-- Do not commit console.log to your repo. - It’s ugly, it kills performance and it can make confidential data be visible in the browser tools.
-- Keep the number of changes/updates to the DOM as low as possible, they are very expensive for the browser.
-- Keep the application logic separated from DOM manipulation tasks.
-- Keep all the styling logic in CSS files.
-- Use object destructuring to get the values from an object. This way you can avoid repeating a lot of code.
-- Create separate test file for each class or module.
+To run this app on your local computer you need the browser
 
 ### Setup
 
