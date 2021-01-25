@@ -8,7 +8,6 @@ In this project, we will be building a Tic Tac Toe game on Javascript.
 # Rules and how to play it
 
 - When you open the app, you and your friend should input your names and click "Start";
-- Here are some rules for Tic Tac Toe: [Wikipedia](https://en.wikipedia.org/wiki/Tic-tac-toe);
 - Player 1 starts the match with the "X" color;
 - Player 2 starts the match with the "O" color;
 - A score and a message announcing the winner/draw are displayed at the top of the board;
